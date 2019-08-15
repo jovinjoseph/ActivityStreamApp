@@ -1,0 +1,73 @@
+version: '3'
+services:
+  activity-auth-app:
+   image: jovinjoseph/activitystream:activity-auth-app
+   restart: always
+   network_mode: host 
+   container_name: activity-auth-app
+   depends_on:
+    - activity-mysql
+   ports:
+    - 8082:8082
+   expose:
+    - 8082
+  activity-circle-app:
+   image: jovinjoseph/activitystream:activity-circle-app
+   restart: always
+   network_mode: host 
+   container_name: activity-circle-app
+   depends_on:
+    - activity-mysql
+   ports:
+    - 8084:8084
+   expose:
+    - 8084
+  activity-message-app:
+   image: jovinjoseph/activitystream:activity-message-app
+   restart: always
+   network_mode: host 
+   container_name: activity-message-app
+   depends_on:
+    - activity-mysql
+   ports:
+    - 8086:8086
+   expose:
+    - 8086
+  activity-usercircle-app:
+   image: jovinjoseph/activitystream:activity-usercircle-app
+   restart: always
+   network_mode: host 
+   container_name: activity-usercircle-app
+   depends_on:
+    - activity-mysql
+   ports:
+    - 8085:8085
+   expose:
+    - 8085
+  activity-user-app:
+   image: jovinjoseph/activitystream:activity-user-app
+   restart: always
+   network_mode: host 
+   container_name: activity-user-app
+   depends_on:
+    - activity-mysql
+   ports:
+    - 8083:8083
+   expose:
+    - 8083           
+  activity-front:
+    image: jovinjoseph/activitystream:activity-front
+    network_mode: host
+    container_name: activity-front
+    ports:
+      - 4200:4200
+  activity-mysql:
+   image: mysql:5.5
+   ports:
+     - "3306:3306"
+   network_mode: host
+   environment:
+     MYSQL_ROOT_PASSWORD: root
+     MYSQL_DATABASE: moviedb
+     MYSQL_USER: app_root
+     MYSQL_PASSWORD: root123
