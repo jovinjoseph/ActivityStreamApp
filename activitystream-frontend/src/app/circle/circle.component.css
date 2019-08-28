@@ -1,0 +1,13 @@
+.noSubscription {
+    font-size: 10px;
+    color: bisque;
+}
+
+.circleHeader {
+    margin-top: 1em;
+    font-weight: bold;
+}
+
+.subscribe-icon i{
+    margin-top: .3em;
+}

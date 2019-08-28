@@ -1,0 +1,14 @@
+<div class="circleList" >
+  <a class="subscribe" mat-stroked-button color="accent" [routerLink]="['/circle']" [routerLinkActive]="['active']">
+    <!-- <i class="fa fa-plus-square-o" aria-hidden="true"></i> -->
+     <span class="subscribe-icon"> <i class="material-icons">add_circle_outline</i></span>
+     <span class="subscribe-text">Subscribe to Circle</span></a>
+</div>
+<div class="circleHeader" >
+  <h6>My Circles</h6>
+</div>
+
+<div class="circleList" *ngIf="circles?.length>0; else noSubscription;">
+  <app-message-circle [messageCircle]=circle *ngFor="let circle of circles"></app-message-circle>
+</div>
+<ng-template #noSubscription><span class="noSubscription">No circles subscribed!</span></ng-template>

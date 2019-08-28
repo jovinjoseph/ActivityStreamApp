@@ -1,0 +1,53 @@
+<div class="container col-md-6 col-md-offset-3">
+    <h5 class="text-center">Create Circle</h5>
+    <form name="form" (ngSubmit)="circleForm.form.valid && createCircle()" #circleForm="ngForm" novalidate>
+        <div class="form-group" >
+            <label for="circleName">Circle Name</label>
+            <input id="circleName" type="text" class="form-control" name="circleName" [(ngModel)]="circleName"  required />
+        </div>
+
+        <div class="form-group">
+            <label class="control-label" for="save"></label>
+              <button mat-raised-button id="create-circle" color="primary" type="submit" (click)="createCircle()" >Create</button>          
+        </div>
+    </form>
+  </div>
+  <div class="container col-md-6 col-md-offset-3">
+    <h5 class="text-center">Subscribe User to Circle</h5>
+    <form name="formUserCircle" (ngSubmit)="userCircleForm.formUserCircle.valid" #userCircleForm="ngForm" novalidate>
+        <div class="form-group basic-container subscribeSelect" >
+            <label for="circleName">Circle Name</label>
+            <mat-form-field>
+                <mat-select placeholder="Subscribe Circle" [(ngModel)]="subscribeCircleName" name="subscribeCircleName">
+                    <mat-option *ngFor="let circle of toBeSubscribedCircles" [value]="circle.circleName">
+                        {{circle.circleName}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <span>
+                <label class="control-label" for="save"></label>
+                <button mat-raised-button id="create-user-circle" color="accent" type="submit" (click)="createUserCircle()" >Subscribe</button>
+            </span>
+        </div>
+    </form>
+  </div>
+  <div class="container col-md-6 col-md-offset-3">
+    <h5 class="text-center">Unsubscribe User from Circle</h5>
+    <form name="formUserCircle" (ngSubmit)="userCircleForm.formUserCircle.valid" #userCircleForm="ngForm" novalidate>
+        <div class="form-group basic-container subscribeSelect" >
+            <label for="circleName">Circle Name</label>
+            <mat-form-field>
+                <mat-select placeholder="UnSubscribe Circle" [(ngModel)]="unSubscribeCircleName" name="unSubscribeCircleName">
+                    <mat-option *ngFor="let circle of subscribedCircles" [value]="circle">
+                        {{circle}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <span class="form-group">
+                <label class="control-label" for="removeUserCircle"></label>             
+                <button mat-raised-button id="remove-user-circle" name="removeUserCircle" color="warn" type="submit" (click)="removeUserCircle()" >Unsubscribe</button>          
+            </span>                
+        </div>
+    </form>
+</div>
+ 

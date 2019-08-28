@@ -1,0 +1,4 @@
+<input class="messageInput" [(ngModel)]="message" (keydown)= "handleSubmit($event)" />
+<div class="button-row">
+    <button mat-raised-button color="primary" class="messageButton" (click)=send()>Send Message</button>
+</div>

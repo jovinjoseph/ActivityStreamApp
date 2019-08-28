@@ -1,0 +1,39 @@
+/* You can add global styles to this file, and also import other style files */
+/* * {
+    height: 93%;
+    box-sizing: border-box;
+    margin: 0;
+    border : 0;
+    padding: 0;
+}
+
+body {
+    width:  100%;
+    min-height: 93%;
+    background: #eee;
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: "Open Sans", sans-serif;
+} */
+
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+app-messagecircle {
+    display: flex;
+    flex-direction: column;
+}
+app-navbar {
+    width: 100%;
+}
+
+app-message-form{
+    width: 100%;
+    display: flex;
+    white-space: nowrap;
+    overflow: none;
+}
+
+.message {
+    display: block;
+    height: auto;
+}

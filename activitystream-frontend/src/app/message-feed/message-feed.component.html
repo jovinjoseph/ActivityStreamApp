@@ -1,0 +1,9 @@
+<div class="feed" *ngIf="messagesService.messages?.length>0; else noSelection;">
+  <div *ngFor="let message of messagesService.messages" class="message">
+  <app-messages [chatMessage]= message></app-messages>
+</div>
+</div>
+<ng-template #noSelection>
+  <p>Welcome to your activity messages area!</p>
+  <p *ngIf="!(messagesService.receiveUser  || messagesService.receiveCircle)">Select your user or circle contacts to view/send messages</p>
+</ng-template>

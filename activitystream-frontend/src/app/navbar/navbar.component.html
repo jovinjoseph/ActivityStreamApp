@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+  <div class="container">
+    <a class="navbar-brand" href="#">{{ title }}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" 
+    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto" *ngIf="isUserLoggedIn">
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="['/message']" [routerLinkActive]="['active']">Home
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/circle']" [routerLinkActive]="['active']" id="nav-create-circle">Circle</a>
+        </li>        
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/logout']" [routerLinkActive]="['active']" id="nav-logout-user">Logout</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto" *ngIf="isUserLoggedIn">
+          <li class="nav-item">
+              <h6 class="userName">Welcome <i>{{username}} </i>! </h6>
+          </li>
+        </ul>
+      <ul class="navbar-nav ml-auto" *ngIf="!isUserLoggedIn">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/register']" [routerLinkActive]="['active']" id="nav-register-user">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/login']" [routerLinkActive]="['active']" (click)="test()" id="nav-login-user" >Login</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
